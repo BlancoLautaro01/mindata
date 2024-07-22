@@ -5,8 +5,6 @@ import com.mindata.domain.inout.SpaceshipRequest;
 import com.mindata.domain.inout.SpaceshipResponse;
 import com.mindata.exception.cases.SpaceshipNotFoundException;
 import com.mindata.services.ports.SpaceshipCommand;
-import io.swagger.annotations.Api;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Positive;
@@ -30,8 +28,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/spaceship")
-@Api(value = "", tags={"Spaceship Controller"})
-@Tag(name = "Spaceship Controller", description = "Spaceship Methods")
 public class SpaceshipController {
 
     @Autowired

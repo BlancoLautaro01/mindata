@@ -7,8 +7,6 @@ import com.mindata.domain.models.UserEntity;
 import com.mindata.exception.cases.DuplicatedEmailException;
 import com.mindata.exception.cases.UserNotFoundException;
 import com.mindata.services.ports.UserCommand;
-import io.swagger.annotations.Api;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user")
-@Api(value = "", tags={"User Controller"})
-@Tag(name = "User Controller", description = "User Methods")
 public class UserController {
 
     @Autowired

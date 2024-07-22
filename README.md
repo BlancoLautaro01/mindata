@@ -2,12 +2,10 @@
 ### Spaceship CRUD
 
 #### Run Application:
-./gradlew build --refresh-dependencies
-./gradlew run
+mvn spring-boot:run
 
 #### Run tests:
-./gradlew test
+mvn test
 
 #### Documentation
-
-SWAGGER: http://localhost:8080/api/swagger-ui/#/
+http://localhost:8080/swagger-ui/index.html

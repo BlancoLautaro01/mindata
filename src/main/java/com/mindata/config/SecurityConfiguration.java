@@ -20,7 +20,7 @@ public class SecurityConfiguration {
         http.cors().and().csrf().disable()
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/swagger-ui/**", "/javainuse-openapi/**").permitAll()
+                        .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/user").permitAll()
                         .anyRequest().authenticated()
                 )
