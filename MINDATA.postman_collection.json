@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "c216f111-c268-4e72-903a-3c463b789154",
+		"name": "MINDATA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22373835"
+	},
+	"item": [
+		{
+			"name": "UserController",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Lautaro\",\n    \"password\": \"Test123!\",\n    \"email\": \"lautaro@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"Test123!\",\n    \"email\": \"lautaro@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SpaceshipController",
+			"item": [
+				{
+					"name": "GetSpaceship By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaW5kYXRhIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MjE2Nzk0NDksImV4cCI6MTcyMTY4MDA0OX0.KpYPGMaNjU9FzQm3tedSkeqLLwa0E7QCqpZ7XhxeDXccJjtaJvXqpEmM_oz3u7tsJUJgmmsVkpwrOKRgOTYYdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/spaceship/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spaceship",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllSpaceship Pageable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaW5kYXRhIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MjE2Nzk0NDksImV4cCI6MTcyMTY4MDA0OX0.KpYPGMaNjU9FzQm3tedSkeqLLwa0E7QCqpZ7XhxeDXccJjtaJvXqpEmM_oz3u7tsJUJgmmsVkpwrOKRgOTYYdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/spaceship?size=5&page=0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spaceship"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllSpaceship ByFilter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaW5kYXRhIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MjE2Nzk0NDksImV4cCI6MTcyMTY4MDA0OX0.KpYPGMaNjU9FzQm3tedSkeqLLwa0E7QCqpZ7XhxeDXccJjtaJvXqpEmM_oz3u7tsJUJgmmsVkpwrOKRgOTYYdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"x\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/spaceship/filterByName",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spaceship",
+								"filterByName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateSpaceship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaW5kYXRhIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MjE2Nzk0NDksImV4cCI6MTcyMTY4MDA0OX0.KpYPGMaNjU9FzQm3tedSkeqLLwa0E7QCqpZ7XhxeDXccJjtaJvXqpEmM_oz3u7tsJUJgmmsVkpwrOKRgOTYYdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"x-space\",\n    \"passengersAmount\": 25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/spaceship",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spaceship"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSpaceship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaW5kYXRhIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MjE2Nzk0NDksImV4cCI6MTcyMTY4MDA0OX0.KpYPGMaNjU9FzQm3tedSkeqLLwa0E7QCqpZ7XhxeDXccJjtaJvXqpEmM_oz3u7tsJUJgmmsVkpwrOKRgOTYYdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"x-wing v2\",\n    \"passengersAmount\": 15\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/spaceship/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spaceship",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteSpaceship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJNaW5kYXRhIiwic3ViIjoiMSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3MjE2Nzk0NDksImV4cCI6MTcyMTY4MDA0OX0.KpYPGMaNjU9FzQm3tedSkeqLLwa0E7QCqpZ7XhxeDXccJjtaJvXqpEmM_oz3u7tsJUJgmmsVkpwrOKRgOTYYdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/spaceship/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spaceship",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
