@@ -24,6 +24,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class SpaceshipUsecaseTest {
@@ -52,6 +54,8 @@ public class SpaceshipUsecaseTest {
         assertEquals(10, firstSpaceship.getPassengersAmount());
         assertEquals("x-spaceship-1", firstSpaceship.getName());
         assertNotNull(firstSpaceship.getCreationDate());
+
+        verify(spaceshipRepository, times(1)).findAll(pageable);
     }
 
     @Test
@@ -66,6 +70,7 @@ public class SpaceshipUsecaseTest {
         assertEquals(10, response.getPassengersAmount());
         assertEquals("x-spaceship-1", response.getName());
         assertNotNull(response.getCreationDate());
+        verify(spaceshipRepository, times(1)).findById(spaceshipId);
     }
 
     @Test
@@ -74,6 +79,7 @@ public class SpaceshipUsecaseTest {
         Mockito.when(spaceshipRepository.findById(spaceshipId)).thenReturn(Optional.empty());
 
         assertThrows(SpaceshipNotFoundException.class, () -> spaceshipUsecase.getSpaceshipById(spaceshipId));
+        verify(spaceshipRepository, times(1)).findById(spaceshipId);
     }
 
     @Test
@@ -94,6 +100,8 @@ public class SpaceshipUsecaseTest {
         assertEquals(10, firstSpaceship.getPassengersAmount());
         assertEquals("x-spaceship-1", firstSpaceship.getName());
         assertNotNull(firstSpaceship.getCreationDate());
+
+        verify(spaceshipRepository, times(1)).findAllFilteredByName("filter");
     }
 
     @Test
@@ -111,6 +119,8 @@ public class SpaceshipUsecaseTest {
         assertEquals(10, response.getPassengersAmount());
         assertEquals("x-spaceship-1", response.getName());
         assertNotNull(response.getCreationDate());
+
+        verify(spaceshipRepository, times(1)).save(any());
     }
 
     @Test
@@ -128,11 +138,15 @@ public class SpaceshipUsecaseTest {
         assertEquals(10, response.getPassengersAmount());
         assertEquals("x-spaceship-1", response.getName());
         assertNotNull(response.getCreationDate());
+
+        verify(spaceshipRepository, times(1)).save(any());
     }
 
     @Test
     void shouldDeleteWithNoErrors() {
         int spaceshipId = 1;
         assertDoesNotThrow(() -> spaceshipUsecase.deleteSpaceship(spaceshipId));
+
+        verify(spaceshipRepository, times(1)).deleteById(spaceshipId);
     }
 }

@@ -14,4 +14,12 @@ public class SpaceshipFactory {
                 .creationDate(new Date())
                 .build();
     }
+
+    public static SpaceshipEntity withName(String name) {
+        return SpaceshipEntity.builder()
+                .name(name)
+                .passengersAmount(10)
+                .creationDate(new Date())
+                .build();
+    }
 }
