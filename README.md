@@ -1,17 +1,14 @@
 ## Lautaro Blanco - MINDATA
 ### Spaceship CRUD
 
-#### Run Application:
-##### With Maven:
-mvn spring-boot:run
+<b>Run with Maven:</b> mvn spring-boot:run
 
-##### With Docker:
-docker build -t mindata:latest .
-docker run -p 8081:8080 mindata
+#### Run with Docker
+docker build -t mindata:latest . \
+docker run -p 8081:8080 mindata 
 
-#### Run tests:
-mvn test
+<b>Run tests:</b>
+mvn test 
 
-#### Documentation
-Swagger: http://localhost:8080/swagger-ui/index.html \
+<b>Swagger:</b> http://localhost:8080/swagger-ui/index.html \
 Also there is a Postman collection in root project with all endpoints to test the API.
