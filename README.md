@@ -8,5 +8,5 @@ mvn spring-boot:run
 mvn test
 
 #### Documentation
-http://localhost:8080/swagger-ui/index.html
+Swagger: http://localhost:8080/swagger-ui/index.html\n
 Also there is a Postman collection in root project with all endpoints to test the API.
