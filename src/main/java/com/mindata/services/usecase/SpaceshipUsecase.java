@@ -48,7 +48,7 @@ public class SpaceshipUsecase implements SpaceshipCommand {
         SpaceshipEntity entity = SpaceshipRequest.toDomain(spaceshipRequest);
         entity.setId(spaceshipId);
 
-        spaceshipRepository.save(entity);
+        entity = spaceshipRepository.save(entity);
         return SpaceshipResponse.fromDomain(entity);
     }
 

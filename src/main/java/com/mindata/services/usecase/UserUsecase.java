@@ -41,6 +41,6 @@ public class UserUsecase implements UserCommand {
         UserEntity user = userRepository.findByEmailAndPassword(request.getEmail(), request.getPassword())
                 .orElseThrow(() -> new UserNotFoundException("Invalid Email or Password"));
 
-        return new LoginDto(user.getName(), jwtUtil.getJWTToken(user.getUserId().toString()));
+        return new LoginDto(user.getName(), jwtUtil.getJWTToken(user.getId().toString()));
     }
 }
