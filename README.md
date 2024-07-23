@@ -2,7 +2,12 @@
 ### Spaceship CRUD
 
 #### Run Application:
+##### With Maven:
 mvn spring-boot:run
+
+##### With Docker:
+docker build -t mindata:latest .
+docker run -p 8081:8080 mindata
 
 #### Run tests:
 mvn test
